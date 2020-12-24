@@ -1,0 +1,16 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /archives/
+
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+Disallow: /tags/
+Disallow: /categories/
+
+Sitemap: https://huzhiliang.com/sitemap.xml
+Sitemap: https://huzhiliang.com/baidusitemap.xml
