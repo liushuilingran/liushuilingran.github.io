@@ -1,7 +1,5 @@
 <!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>优化算法 - MCFON</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="MCFON"><meta name="msapplication-TileImage" content="/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MCFON"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="如何解决训练样本少的问题目前大部分的深度学习模型仍然需要海量的数据支持。例如 ImageNet 数据就拥有1400多万的图片。而现实生产环境中，数据集通常较小，只有几万甚至几百个样本。这时候，如何在这种情况下应用深度学习呢?"><meta property="og:type" content="blog"><meta property="og:title" content="优化算法"><meta property="og:url" content="https://huzhiliang.com/2019/09/26/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"><meta property="og:site_name" content="MCFON"><meta property="og:description" content="如何解决训练样本少的问题目前大部分的深度学习模型仍然需要海量的数据支持。例如 ImageNet 数据就拥有1400多万的图片。而现实生产环境中，数据集通常较小，只有几万甚至几百个样本。这时候，如何在这种情况下应用深度学习呢?"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g87j86qggdj30dh08wmy0.jpg"><meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g87j7gfmhwj30k208paaz.jpg"><meta property="article:published_time" content="2019-09-25T18:12:11.000Z"><meta property="article:modified_time" content="2019-10-29T05:12:40.279Z"><meta property="article:author" content="ฅ´ω`ฅ"><meta property="article:tag" content="优化算法"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g87j86qggdj30dh08wmy0.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://huzhiliang.com/2019/09/26/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"},"headline":"MCFON","image":["https://tva1.sinaimg.cn/large/006y8mN6gy1g87j86qggdj30dh08wmy0.jpg","https://tva1.sinaimg.cn/large/006y8mN6gy1g87j7gfmhwj30k208paaz.jpg"],"datePublished":"2019-09-25T18:12:11.000Z","dateModified":"2019-10-29T05:12:40.279Z","author":{"@type":"Person","name":"ฅ´ω`ฅ"},"description":"如何解决训练样本少的问题目前大部分的深度学习模型仍然需要海量的数据支持。例如 ImageNet 数据就拥有1400多万的图片。而现实生产环境中，数据集通常较小，只有几万甚至几百个样本。这时候，如何在这种情况下应用深度学习呢?"}</script><link rel="canonical" href="https://huzhiliang.com/2019/09/26/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><script type="text/javascript" src="/js/imaegoo/night.js"></script><canvas id="universe"></canvas><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img class="logo-img" src="/" alt="MCFON" height="28"><img class="logo-img-dark" src="/" alt="MCFON" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives/">时间轴</a><a class="navbar-item" href="/categories/">分类</a><a class="navbar-item" href="/tags/">标签</a><a class="navbar-item" target="_blank" rel="noopener" href="https://imaegoo.azurewebsites.net">网盘</a><a class="navbar-item" href="/messages/">留言板</a><a class="navbar-item" href="/friends/">友情链接</a><a class="navbar-item" href="/about/">关于</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2019-09-25T18:12:11.000Z" title="2019-09-25T18:12:11.000Z">2019-09-26</time>发表</span><span class="level-item"><time dateTime="2019-10-29T05:12:40.279Z" title="2019-10-29T05:12:40.279Z">2019-10-29</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">1 小时读完 (大约12174个字)</span><span class="level-item leancloud_visitors" id="/2019/09/26/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" data-flag-title="优化算法"><i class="far fa-eye"></i>&nbsp;&nbsp;<span id="twikoo_visitors"><i class="fa fa-spinner fa-spin"></i></span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">优化算法</h1><div class="content"><h2 id="如何解决训练样本少的问题"><a href="#如何解决训练样本少的问题" class="headerlink" title="如何解决训练样本少的问题"></a>如何解决训练样本少的问题</h2><p>目前大部分的深度学习模型仍然需要海量的数据支持。例如 ImageNet 数据就拥有1400多万的图片。而现实生产环境中，数据集通常较小，只有几万甚至几百个样本。这时候，如何在这种情况下应用深度学习呢?  </p>
-<a id="more"></a>
-<p>（1）利用预训练模型进行迁移微调（fine-tuning），预训练模型通常在特征上拥有很好的语义表达。此时，只需将模型在小数据集上进行微调就能取得不错的效果。这也是目前大部分小数据集常用的训练方式。视觉领域内，通常会ImageNet上训练完成的模型。自然语言处理领域，也有BERT模型等预训练模型可以使用。<br>&emsp;&emsp;<br>（2）单样本或者少样本学习（one-shot，few-shot learning），这种方式适用于样本类别远远大于样本数量的情况等极端数据集。例如有1000个类别，每个类别只提供1-5个样本。少样本学习同样也需要借助预训练模型，但有别于微调的在于，微调通常仍然在学习不同类别的语义，而少样本学习通常需要学习样本之间的距离度量。例如孪生网络（Siamese Neural Networks）就是通过训练两个同种结构的网络来判别输入的两张图片是否属于同一类。<br>​    上述两种是常用训练小样本数据集的方式。此外，也有些常用的手段，例如数据集增强、正则或者半监督学习等方式来解决小样本数据集的训练问题。</p>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>优化算法 - MCFON</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="MCFON"><meta name="msapplication-TileImage" content="/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MCFON"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="如何解决训练样本少的问题目前大部分的深度学习模型仍然需要海量的数据支持。例如 ImageNet 数据就拥有1400多万的图片。而现实生产环境中，数据集通常较小，只有几万甚至几百个样本。这时候，如何在这种情况下应用深度学习呢?"><meta property="og:type" content="blog"><meta property="og:title" content="优化算法"><meta property="og:url" content="https://huzhiliang.com/2019/09/26/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"><meta property="og:site_name" content="MCFON"><meta property="og:description" content="如何解决训练样本少的问题目前大部分的深度学习模型仍然需要海量的数据支持。例如 ImageNet 数据就拥有1400多万的图片。而现实生产环境中，数据集通常较小，只有几万甚至几百个样本。这时候，如何在这种情况下应用深度学习呢?"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g87j86qggdj30dh08wmy0.jpg"><meta property="og:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g87j7gfmhwj30k208paaz.jpg"><meta property="article:published_time" content="2019-09-25T18:12:11.000Z"><meta property="article:modified_time" content="2019-10-29T05:12:40.279Z"><meta property="article:author" content="ฅ´ω`ฅ"><meta property="article:tag" content="优化算法"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="https://tva1.sinaimg.cn/large/006y8mN6gy1g87j86qggdj30dh08wmy0.jpg"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://huzhiliang.com/2019/09/26/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"},"headline":"MCFON","image":["https://tva1.sinaimg.cn/large/006y8mN6gy1g87j86qggdj30dh08wmy0.jpg","https://tva1.sinaimg.cn/large/006y8mN6gy1g87j7gfmhwj30k208paaz.jpg"],"datePublished":"2019-09-25T18:12:11.000Z","dateModified":"2019-10-29T05:12:40.279Z","author":{"@type":"Person","name":"ฅ´ω`ฅ"},"description":"如何解决训练样本少的问题目前大部分的深度学习模型仍然需要海量的数据支持。例如 ImageNet 数据就拥有1400多万的图片。而现实生产环境中，数据集通常较小，只有几万甚至几百个样本。这时候，如何在这种情况下应用深度学习呢?"}</script><link rel="canonical" href="https://huzhiliang.com/2019/09/26/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><script type="text/javascript" src="/js/imaegoo/night.js"></script><canvas id="universe"></canvas><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img class="logo-img" src="/" alt="MCFON" height="28"><img class="logo-img-dark" src="/" alt="MCFON" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives/">时间轴</a><a class="navbar-item" href="/categories/">分类</a><a class="navbar-item" href="/tags/">标签</a><a class="navbar-item" target="_blank" rel="noopener" href="https://imaegoo.azurewebsites.net">网盘</a><a class="navbar-item" href="/messages/">留言板</a><a class="navbar-item" href="/friends/">友情链接</a><a class="navbar-item" href="/about/">关于</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2019-09-25T18:12:11.000Z" title="2019-09-25T18:12:11.000Z">2019-09-26</time>发表</span><span class="level-item"><time dateTime="2019-10-29T05:12:40.279Z" title="2019-10-29T05:12:40.279Z">2019-10-29</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span><span class="level-item">1 小时读完 (大约12174个字)</span><span class="level-item leancloud_visitors" id="/2019/09/26/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" data-flag-title="优化算法"><i class="far fa-eye"></i>&nbsp;&nbsp;<span id="twikoo_visitors"><i class="fa fa-spinner fa-spin"></i></span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">优化算法</h1><div class="content"><h2 id="如何解决训练样本少的问题"><a href="#如何解决训练样本少的问题" class="headerlink" title="如何解决训练样本少的问题"></a>如何解决训练样本少的问题</h2><p>目前大部分的深度学习模型仍然需要海量的数据支持。例如 ImageNet 数据就拥有1400多万的图片。而现实生产环境中，数据集通常较小，只有几万甚至几百个样本。这时候，如何在这种情况下应用深度学习呢?<br><a id="more"></a><br>（1）利用预训练模型进行迁移微调（fine-tuning），预训练模型通常在特征上拥有很好的语义表达。此时，只需将模型在小数据集上进行微调就能取得不错的效果。这也是目前大部分小数据集常用的训练方式。视觉领域内，通常会ImageNet上训练完成的模型。自然语言处理领域，也有BERT模型等预训练模型可以使用。<br>&emsp;&emsp;<br>（2）单样本或者少样本学习（one-shot，few-shot learning），这种方式适用于样本类别远远大于样本数量的情况等极端数据集。例如有1000个类别，每个类别只提供1-5个样本。少样本学习同样也需要借助预训练模型，但有别于微调的在于，微调通常仍然在学习不同类别的语义，而少样本学习通常需要学习样本之间的距离度量。例如孪生网络（Siamese Neural Networks）就是通过训练两个同种结构的网络来判别输入的两张图片是否属于同一类。<br>​    上述两种是常用训练小样本数据集的方式。此外，也有些常用的手段，例如数据集增强、正则或者半监督学习等方式来解决小样本数据集的训练问题。</p>
 <h2 id="深度学习是否能胜任所有数据集"><a href="#深度学习是否能胜任所有数据集" class="headerlink" title="深度学习是否能胜任所有数据集?"></a>深度学习是否能胜任所有数据集?</h2><p>深度学习并不能胜任目前所有的数据环境，以下列举两种情况：</p>
 <p>（1）深度学习能取得目前的成果，很大一部分原因依赖于海量的数据集以及高性能密集计算硬件。因此，当数据集过小时，需要考虑与传统机器学习相比，是否在性能和硬件资源效率更具有优势。<br>（2）深度学习目前在视觉，自然语言处理等领域都有取得不错的成果。这些领域最大的特点就是具有局部相关性。例如图像中，人的耳朵位于两侧，鼻子位于两眼之间，文本中单词组成句子。这些都是具有局部相关性的，一旦被打乱则会破坏语义或者有不同的语义。所以当数据不具备这种相关性的时候，深度学习就很难取得效果。</p>
 <h2 id="有没有可能找到比已知算法更好的算法"><a href="#有没有可能找到比已知算法更好的算法" class="headerlink" title="有没有可能找到比已知算法更好的算法?"></a>有没有可能找到比已知算法更好的算法?</h2><p>在最优化理论发展中，有个没有免费午餐的定律，其主要含义在于，在不考虑具体背景和细节的情况下，任何算法和随机猜的效果期望是一样的。即，没有任何一种算法能优于其他一切算法，甚至不比随机猜好。深度学习作为机器学习领域的一个分支同样符合这个定律。所以，虽然目前深度学习取得了非常不错的成果，但是我们同样不能盲目崇拜。</p>
@@ -20,14 +18,18 @@
 <p><strong>3. 均匀分布初始化(uniform)</strong> </p>
 <p>​    给定最大最小的上下限，参数会在该范围内以均匀分布方式进行初始化，常用上下限为（0，1）。</p>
 <p><strong>4. xavier 初始化(uniform)</strong>  </p>
-<p>​    在batchnorm还未出现之前，要训练较深的网络，防止梯度弥散，需要依赖非常好的初始化方式。xavier 就是一种比较优秀的初始化方式，也是目前最常用的初始化方式之一。其目的是为了使得模型各层的激活值和梯度在传播过程中的方差保持一致。本质上xavier 还是属于均匀分布初始化，但与上述的均匀分布初始化有所不同，xavier 的上下限将在如下范围内进行均匀分布采样：<br>$$<br>[-\sqrt{\frac{6}{n+m}},\sqrt{\frac{6}{n+m}}]<br>$$<br>​    其中，n为所在层的输入维度，m为所在层的输出维度。</p>
+<p>​    在batchnorm还未出现之前，要训练较深的网络，防止梯度弥散，需要依赖非常好的初始化方式。xavier 就是一种比较优秀的初始化方式，也是目前最常用的初始化方式之一。其目的是为了使得模型各层的激活值和梯度在传播过程中的方差保持一致。本质上xavier 还是属于均匀分布初始化，但与上述的均匀分布初始化有所不同，xavier 的上下限将在如下范围内进行均匀分布采样：</p>
+<script type="math/tex; mode=display">
+[-\sqrt{\frac{6}{n+m}},\sqrt{\frac{6}{n+m}}]</script><p>​    其中，n为所在层的输入维度，m为所在层的输出维度。</p>
 <p><strong>6. kaiming初始化（msra 初始化）</strong> </p>
-<p>​    kaiming初始化，在caffe中也叫msra 初始化。kaiming初始化和xavier 一样都是为了防止梯度弥散而使用的初始化方式。kaiming初始化的出现是因为xavier存在一个不成立的假设。xavier在推导中假设激活函数都是线性的，而在深度学习中常用的ReLu等都是非线性的激活函数。而kaiming初始化本质上是高斯分布初始化，与上述高斯分布初始化有所不同，其是个满足均值为0，方差为2/n的高斯分布：<br>$$<br>[0,\sqrt{\frac{2}{n}}]<br>$$<br>​    其中，n为所在层的输入维度。</p>
+<p>​    kaiming初始化，在caffe中也叫msra 初始化。kaiming初始化和xavier 一样都是为了防止梯度弥散而使用的初始化方式。kaiming初始化的出现是因为xavier存在一个不成立的假设。xavier在推导中假设激活函数都是线性的，而在深度学习中常用的ReLu等都是非线性的激活函数。而kaiming初始化本质上是高斯分布初始化，与上述高斯分布初始化有所不同，其是个满足均值为0，方差为2/n的高斯分布：</p>
+<script type="math/tex; mode=display">
+[0,\sqrt{\frac{2}{n}}]</script><p>​    其中，n为所在层的输入维度。</p>
 <p>除上述常见的初始化方式以外，不同深度学习框架下也会有不同的初始化方式，读者可自行查阅官方文档。</p>
 <h2 id="如何防止梯度下降陷入局部最优解"><a href="#如何防止梯度下降陷入局部最优解" class="headerlink" title="如何防止梯度下降陷入局部最优解?"></a>如何防止梯度下降陷入局部最优解?</h2><p>梯度下降法(GD)及其一些变种算法是目前深度学习里最常用于求解凸优化问题的优化算法。神经网络很可能存在很多局部最优解，而非全局最优解。 为了防止陷入局部最优，通常会采用如下一些方法，当然，这并不能保证一定能找到全局最优解，或许能得到一个比目前更优的局部最优解也是不错的：</p>
 <p><strong>（1）stochastic GD</strong> /<strong>Mini-Batch GD</strong> </p>
-<p>​    在GD算法中，每次的梯度都是从所有样本中累计获取的，这种情况最容易导致梯度方向过于稳定一致，且更新次数过少，容易陷入局部最优。而stochastic GD是GD的另一种极端更新方式，其每次都只使用一个样本进行参数更新，这样更新次数大大增加也就不容易陷入局部最优。但引出的一个问题的在于其更新方向过多，导致不易于进一步优化。Mini-Batch GD便是两种极端的折中，即每次更新使用一小批样本进行参数更新。Mini-Batch GD是目前最常用的优化算法，严格意义上Mini-Batch GD也叫做stochastic GD，所以很多深度学习框架上都叫做SGD。<br>**（2）动量 **<br>​    动量也是GD中常用的方式之一，SGD的更新方式虽然有效，但每次只依赖于当前批样本的梯度方向，这样的梯度方向依然很可能很随机。动量就是用来减少随机，增加稳定性。其思想是模仿物理学的动量方式，每次更新前加入部分上一次的梯度量，这样整个梯度方向就不容易过于随机。一些常见情况时，如上次梯度过大，导致进入局部最小点时，下一次更新能很容易借助上次的大梯度跳出局部最小点。</p>
-<p>**（3）自适应学习率 ** </p>
+<p>​    在GD算法中，每次的梯度都是从所有样本中累计获取的，这种情况最容易导致梯度方向过于稳定一致，且更新次数过少，容易陷入局部最优。而stochastic GD是GD的另一种极端更新方式，其每次都只使用一个样本进行参数更新，这样更新次数大大增加也就不容易陷入局部最优。但引出的一个问题的在于其更新方向过多，导致不易于进一步优化。Mini-Batch GD便是两种极端的折中，即每次更新使用一小批样本进行参数更新。Mini-Batch GD是目前最常用的优化算法，严格意义上Mini-Batch GD也叫做stochastic GD，所以很多深度学习框架上都叫做SGD。<br><strong>（2）动量 </strong><br>​    动量也是GD中常用的方式之一，SGD的更新方式虽然有效，但每次只依赖于当前批样本的梯度方向，这样的梯度方向依然很可能很随机。动量就是用来减少随机，增加稳定性。其思想是模仿物理学的动量方式，每次更新前加入部分上一次的梯度量，这样整个梯度方向就不容易过于随机。一些常见情况时，如上次梯度过大，导致进入局部最小点时，下一次更新能很容易借助上次的大梯度跳出局部最小点。</p>
+<p><strong>（3）自适应学习率 </strong> </p>
 <p>​    无论是GD还是动量重点优化角度是梯度方向。而学习率则是用来直接控制梯度更新幅度的超参数。自适应学习率的优化方法有很多，例如Adagrad和RMSprop。两种自适应学习率的方式稍有差异，但主要思想都是基于历史的累计梯度去计算一个当前较优的学习率。</p>
 <h2 id="为什么需要激活函数？"><a href="#为什么需要激活函数？" class="headerlink" title="为什么需要激活函数？"></a>为什么需要激活函数？</h2><p>（1）非线性：即导数不是常数。这个条件是多层神经网络的基础，保证多层网络不退化成单层线性网络。这也是激活函数的意义所在。</p>
 <p>（2）几乎处处可微：可微性保证了在优化中梯度的可计算性。传统的激活函数如sigmoid等满足处处可微。对于分段线性函数比如ReLU，只满足几乎处处可微（即仅在有限个点处不可微）。对于SGD算法来说，由于几乎不可能收敛到梯度接近零的位置，有限的不可微点对于优化结果不会有很大影响[1]。</p>
@@ -41,20 +43,41 @@
 <h2 id="常见的损失函数有哪些"><a href="#常见的损失函数有哪些" class="headerlink" title="常见的损失函数有哪些?"></a>常见的损失函数有哪些?</h2><p>机器学习通过对算法中的目标函数进行不断求解优化，得到最终想要的结果。分类和回归问题中，通常使用损失函数或代价函数作为目标函数。</p>
 <p>损失函数用来评价预测值和真实值不一样的程度。通常损失函数越好，模型的性能也越好。</p>
 <p>损失函数可分为<strong>经验风险损失</strong>和<strong>结构风险损失</strong>。经验风险损失是根据已知数据得到的损失。结构风险损失是为了防止模型被过度拟合已知数据而加入的惩罚项。</p>
-<p>下面介绍常用的损失函数:<br><strong>（1）0-1 损失函数</strong><br>&emsp;&emsp;<br>如果预测值和目标值相等，值为 0，如果不相等，值为 1：<br>$$<br>L(Y,f(x))=<br>\left{<br>\begin{array}{}<br>1;;;,;;Y\ne f(x), \<br>0;;;,;;Y=f(x).<br>\end{array}<br>\right.<br>$$</p>
-<p>&emsp;&emsp;<br>一般的在实际使用中，相等的条件过于严格，可适当放宽条件：<br>$$<br>L(Y,f(x))=<br>\left{<br>\begin{array}{}<br>1;;;,;;|Y - f(x)| \ge T, \<br>0;;;,;;|Y-f(x)| &lt; T.<br>\end{array}<br>\right.<br>$$</p>
-<p>&emsp;&emsp;</p>
-<p><strong>（2）绝对值损失函数</strong><br>&emsp;&emsp;<br>和 0-1 损失函数相似，绝对值损失函数表示为：<br>$$<br>L(Y,f(x))=|Y-f(x)|.<br>$$</p>
-<p>&emsp;&emsp;<br><strong>（3）平方损失函数</strong><br>$$<br>L(Y|f(x))=\sum_{N}(Y-f(x))^2.<br>$$</p>
-<p>&emsp;&emsp;<br>这点可从最小二乘法和欧几里得距离角度理解。最小二乘法的原理是，最优拟合曲线应该 使所有点到回归直线的距离和最小。</p>
-<p>&emsp;&emsp;<br><strong>（4）log 对数损失函数</strong><br>$$<br>L(Y,P(Y|X))=-logP(Y|X).<br>$$</p>
-<p>&emsp;&emsp;<br>常见的逻辑回归使用的就是对数损失函数，有很多人认为逻辑回归的损失函数式平方损失， 其实不然。逻辑回归它假设样本服从伯努利分布，进而求得满足该分布的似然函数，接着取对 数求极值等。逻辑回归推导出的经验风险函数是最小化负的似然函数，从损失函数的角度看， 就是 log 损失函数。</p>
-<p>&emsp;&emsp;<br><strong>（5）指数损失函数</strong><br>&emsp;&emsp;<br>指数损失函数的标准形式为：<br>$$<br>L(Y|f(x))=exp[-yf(x)].<br>$$</p>
-<p>&emsp;&emsp;<br>例如 AdaBoost 就是以指数损失函数为损失函数。</p>
-<p>&emsp;&emsp;<br><strong>（6）Hinge 损失函数</strong><br>&emsp;&emsp;<br>Hinge 损失函数的标准形式如下：<br>$$<br>L(y)=max(0, 1-ty).<br>$$</p>
-<p>&emsp;&emsp;<br>其中 y 是预测值，范围为(-1,1), t 为目标值，其为-1 或 1。<br>&emsp;&emsp;<br>在线性支持向量机中，最优化问题可等价于：<br>$$<br>\underset{w,b}{min}\sum_{i=1}^{N}(1-y_i(wx_i+b))+\lambda \lVert w^2 \rVert<br>$$</p>
-<p>&emsp;&emsp;<br>$$<br>\frac{1}{m}\sum_{i=1}^{N}l(wx_i+by_i))+\lVert w^2 \rVert<br>$$</p>
-<p>&emsp;&emsp;<br>其中$l(wx_i+by_i))$是Hinge损失函数，$\lVert w^2 \rVert$可看做为正则化项。</p>
+<p>下面介绍常用的损失函数:<br><strong>（1）0-1 损失函数</strong><br>&emsp;&emsp;<br>如果预测值和目标值相等，值为 0，如果不相等，值为 1：</p>
+<script type="math/tex; mode=display">
+L(Y,f(x))=
+\left\{
+\begin{array}{}
+1\;\;\;,\;\;Y\ne f(x), \\
+0\;\;\;,\;\;Y=f(x).
+\end{array}
+\right.</script><p>&emsp;&emsp;<br>一般的在实际使用中，相等的条件过于严格，可适当放宽条件：</p>
+<script type="math/tex; mode=display">
+L(Y,f(x))=
+\left\{
+\begin{array}{}
+1\;\;\;,\;\;|Y - f(x)| \ge T, \\
+0\;\;\;,\;\;|Y-f(x)| < T.
+\end{array}
+\right.</script><p>&emsp;&emsp;</p>
+<p><strong>（2）绝对值损失函数</strong><br>&emsp;&emsp;<br>和 0-1 损失函数相似，绝对值损失函数表示为：</p>
+<script type="math/tex; mode=display">
+L(Y,f(x))=|Y-f(x)|.</script><p>&emsp;&emsp;<br><strong>（3）平方损失函数</strong>  </p>
+<script type="math/tex; mode=display">
+L(Y|f(x))=\sum_{N}(Y-f(x))^2.</script><p>&emsp;&emsp;<br>这点可从最小二乘法和欧几里得距离角度理解。最小二乘法的原理是，最优拟合曲线应该 使所有点到回归直线的距离和最小。</p>
+<p>&emsp;&emsp;<br><strong>（4）log 对数损失函数</strong>  </p>
+<script type="math/tex; mode=display">
+L(Y,P(Y|X))=-logP(Y|X).</script><p>&emsp;&emsp;<br>常见的逻辑回归使用的就是对数损失函数，有很多人认为逻辑回归的损失函数式平方损失， 其实不然。逻辑回归它假设样本服从伯努利分布，进而求得满足该分布的似然函数，接着取对 数求极值等。逻辑回归推导出的经验风险函数是最小化负的似然函数，从损失函数的角度看， 就是 log 损失函数。</p>
+<p>&emsp;&emsp;<br><strong>（5）指数损失函数</strong><br>&emsp;&emsp;<br>指数损失函数的标准形式为：</p>
+<script type="math/tex; mode=display">
+L(Y|f(x))=exp[-yf(x)].</script><p>&emsp;&emsp;<br>例如 AdaBoost 就是以指数损失函数为损失函数。</p>
+<p>&emsp;&emsp;<br><strong>（6）Hinge 损失函数</strong><br>&emsp;&emsp;<br>Hinge 损失函数的标准形式如下：</p>
+<script type="math/tex; mode=display">
+L(y)=max(0, 1-ty).</script><p>&emsp;&emsp;<br>其中 y 是预测值，范围为(-1,1), t 为目标值，其为-1 或 1。<br>&emsp;&emsp;<br>在线性支持向量机中，最优化问题可等价于：</p>
+<script type="math/tex; mode=display">
+\underset{w,b}{min}\sum_{i=1}^{N}(1-y_i(wx_i+b))+\lambda \lVert w^2 \rVert</script><p>&emsp;&emsp;</p>
+<script type="math/tex; mode=display">
+\frac{1}{m}\sum_{i=1}^{N}l(wx_i+by_i))+\lVert w^2 \rVert</script><p>&emsp;&emsp;<br>其中$l(wx_i+by_i))$是Hinge损失函数，$\lVert w^2 \rVert$可看做为正则化项。</p>
 <h2 id="如何进行特征选择-feature-selection"><a href="#如何进行特征选择-feature-selection" class="headerlink" title="如何进行特征选择(feature selection)?"></a>如何进行特征选择(feature selection)?</h2><h3 id="特征类型有哪些？"><a href="#特征类型有哪些？" class="headerlink" title="特征类型有哪些？"></a>特征类型有哪些？</h3><p>对象本身会有许多属性。所谓特征，即能在某方面最能表征对象的一个或者一组属性。一般地，我们可以把特征分为如下三个类型：</p>
 <p>（1）相关特征：对于特定的任务和场景具有一定帮助的属性，这些属性通常能有效提升算法性能；</p>
 <p>（2）无关特征：在特定的任务和场景下完全无用的属性，这些属性对对象在本目标环境下完全无用；</p>
@@ -68,15 +91,19 @@
 <h3 id="特征选择目的"><a href="#特征选择目的" class="headerlink" title="特征选择目的"></a>特征选择目的</h3><p>（1）减少特征维度，使模型泛化能力更强，减少过拟合;   </p>
 <p>（2）降低任务目标的学习难度；</p>
 <p>（3）一组优秀的特征通常能有效的降低模型复杂度，提升模型效率 </p>
-<h2 id="梯度消失-梯度爆炸原因，以及解决方法"><a href="#梯度消失-梯度爆炸原因，以及解决方法" class="headerlink" title="梯度消失/梯度爆炸原因，以及解决方法"></a>梯度消失/梯度爆炸原因，以及解决方法</h2><h3 id="为什么要使用梯度更新规则"><a href="#为什么要使用梯度更新规则" class="headerlink" title="为什么要使用梯度更新规则?"></a>为什么要使用梯度更新规则?</h3><p>目前深度学习的火热，其最大的功臣之一就是反向传播。反向传播，即根据损失评价函数计算的误差，计算得到梯度，通过梯度反向传播的方式，指导深度网络权值的更新优化。这样做的原因在于，深层网络由许多非线性层堆叠而来，每一层非线性层都可以视为是一个非线性函数，因此整个深度网络可以视为是一个复合的非线性多元函数：<br>$$<br>F(x)=f_n(\cdots f_3(f_2(f_1(x)*\theta_1+b)*\theta_2+b)\cdots)<br>$$<br>我们最终的目的是希望这个多元函数可以很好的完成输入到输出之间的映射，假设不同的输入，输出的最优解是g(x) ，那么，优化深度网络就是为了寻找到合适的权值，满足 Loss=L(g(x),F(x))取得极小值点，比如最简单的损失函数：<br>$$<br>Loss = \lVert g(x)-f(x) \rVert^2_2.<br>$$<br>假设损失函数的数据空间是下图这样的，我们最优的权值就是为了寻找下图中的最小值点， 对于这种数学寻找最小值问题，采用梯度下降的方法再适合不过了。</p>
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g87j86qggdj30dh08wmy0.jpg"></p>
+<h2 id="梯度消失-梯度爆炸原因，以及解决方法"><a href="#梯度消失-梯度爆炸原因，以及解决方法" class="headerlink" title="梯度消失/梯度爆炸原因，以及解决方法"></a>梯度消失/梯度爆炸原因，以及解决方法</h2><h3 id="为什么要使用梯度更新规则"><a href="#为什么要使用梯度更新规则" class="headerlink" title="为什么要使用梯度更新规则?"></a>为什么要使用梯度更新规则?</h3><p>目前深度学习的火热，其最大的功臣之一就是反向传播。反向传播，即根据损失评价函数计算的误差，计算得到梯度，通过梯度反向传播的方式，指导深度网络权值的更新优化。这样做的原因在于，深层网络由许多非线性层堆叠而来，每一层非线性层都可以视为是一个非线性函数，因此整个深度网络可以视为是一个复合的非线性多元函数：</p>
+<script type="math/tex; mode=display">
+F(x)=f_n(\cdots f_3(f_2(f_1(x)*\theta_1+b)*\theta_2+b)\cdots)</script><p>我们最终的目的是希望这个多元函数可以很好的完成输入到输出之间的映射，假设不同的输入，输出的最优解是g(x) ，那么，优化深度网络就是为了寻找到合适的权值，满足 Loss=L(g(x),F(x))取得极小值点，比如最简单的损失函数：</p>
+<script type="math/tex; mode=display">
+Loss = \lVert g(x)-f(x) \rVert^2_2.</script><p>假设损失函数的数据空间是下图这样的，我们最优的权值就是为了寻找下图中的最小值点， 对于这种数学寻找最小值问题，采用梯度下降的方法再适合不过了。</p>
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g87j86qggdj30dh08wmy0.jpg" alt=""></p>
 <center>图 13.8.1 </center>
 
 <h3 id="梯度消失-爆炸产生的原因"><a href="#梯度消失-爆炸产生的原因" class="headerlink" title="梯度消失/爆炸产生的原因?"></a>梯度消失/爆炸产生的原因?</h3><p>本质上，梯度消失和爆炸是一种情况。在深层网络中，由于网络过深，如果初始得到的梯度过小，或者传播途中在某一层上过小，则在之后的层上得到的梯度会越来越小，即产生了梯度消失。梯度爆炸也是同样的。一般地，不合理的初始化以及激活函数，如sigmoid等，都会导致梯度过大或者过小，从而引起消失/爆炸。</p>
 <p>下面分别从网络深度角度以及激活函数角度进行解释：</p>
 <p>（1）网络深度 </p>
 <p>若在网络很深时，若权重初始化较小，各层上的相乘得到的数值都会0-1之间的小数，而激活函数梯度也是0-1之间的数。那么连乘后，结果数值就会变得非常小，导致<strong>梯度消失</strong>。若权重初始化较大，大到乘以激活函数的导数都大于1，那么连乘后，可能会导致求导的结果很大，形成<strong>梯度爆炸</strong>。</p>
-<p>（2）激活函数<br>如果激活函数选择不合适，比如使用 sigmoid，梯度消失就会很明显了，原因看下图，左图是sigmoid的函数图，右边是其导数的图像，如果使用sigmoid作为损失函数，其梯度是不可能超过0.25的，这样经过链式求导之后，很容易发生梯度消失。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g87j7gfmhwj30k208paaz.jpg"></p>
+<p>（2）激活函数<br>如果激活函数选择不合适，比如使用 sigmoid，梯度消失就会很明显了，原因看下图，左图是sigmoid的函数图，右边是其导数的图像，如果使用sigmoid作为损失函数，其梯度是不可能超过0.25的，这样经过链式求导之后，很容易发生梯度消失。<br><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g87j7gfmhwj30k208paaz.jpg" alt=""></p>
 <center>图 13.8.2 sigmod函数与其导数</center>
 
 <h3 id="梯度消失、爆炸的解决方案"><a href="#梯度消失、爆炸的解决方案" class="headerlink" title="梯度消失、爆炸的解决方案"></a>梯度消失、爆炸的解决方案</h3><p><strong>1、预训练加微调</strong><br>此方法来自Hinton在2006年发表的一篇论文，Hinton为了解决梯度的问题，提出采取无监督逐层训练方法，其基本思想是每次训练一层隐节点，训练时将上一层隐节点的输出作为输入，而本层隐节点的输出作为下一层隐节点的输入，此过程就是逐层“预训练”（pre-training）；在预训练完成后，再对整个网络进行“微调”（fine-tunning）。Hinton在训练深度信念网络（Deep Belief Networks中，使用了这个方法，在各层预训练完成后，再利用BP算法对整个网络进行训练。此思想相当于是先寻找局部最优，然后整合起来寻找全局最优，此方法有一定的好处，但是目前应用的不是很多了。</p>
@@ -98,7 +125,17 @@
 <h2 id="什么是TOP5错误率？"><a href="#什么是TOP5错误率？" class="headerlink" title="什么是TOP5错误率？"></a>什么是TOP5错误率？</h2><p>通常对于分类系统而言，系统会对某个未知样本进行所有已知样本的匹配，并给出该未知样本在每个已知类别上的概率。其中最大的概率就是系统系统判定最可能的一个类别。TOP5则就是在前五个最大概率的类别。TOP5错误率，即预测最可能的五类都不是该样本类别的错误率。  </p>
 <p>TOP5错误率通常会用于在类别数量很多或者细粒度类别的模型系统。典型地，例如著名的ImageNet ，其包含了1000个类别。通常就会采用TOP5错误率。</p>
 <h2 id="什么是泛化误差，如何理解方差和偏差？"><a href="#什么是泛化误差，如何理解方差和偏差？" class="headerlink" title="什么是泛化误差，如何理解方差和偏差？"></a>什么是泛化误差，如何理解方差和偏差？</h2><p>一般情况下，我们评价模型性能时都会使用泛化误差。泛化误差越低，模型性能越好。泛化误差可分解为方差、偏差和噪声三部分。这三部分中，噪声是个不可控因素，它的存在是算法一直无法解决的问题，很难约减，所以我们更多考虑的是方差和偏差。</p>
-<p> 方差和偏差在泛化误差上可做如下分解，假设我们的预测值为g(x)，真实值为f(x)，则均方误差为<br>$$<br>E((g(x)−f(x))2)<br>$$<br>这里假设不考虑噪声，g来代表预测值，f代表真实值，g¯=E(g)代表算法的期望预测，则有如下表达：<br>$$<br>\begin{align}<br>E(g-f)^2&amp;=E(g^2-2gf+f^2)<br>\&amp;=E(g^2)-\bar g^2+(\bar g-f)^2<br>\&amp;=E(g^2)-2\bar g^2+\bar g^2+(\bar g-f)^2<br>\&amp;=E(g^2-2g\bar g^2+\bar g^2)+(\bar g-f)^2<br>\&amp;=\underbrace{E(g-\bar g)^2}<em>{var(x)}+\underbrace{(\bar g-f)^2}</em>{bias^2(x)}<br>\end{align}<br>$$<br>有上述公式可知，方差描述是理论期望和预测值之间的关系，这里的理论期望通常是指所有适用于模型的各种不同分布类型的数据集；偏差描述为真实值和预测值之间的关系，这里的真实值通常指某一个特定分布的数据集合。</p>
+<p> 方差和偏差在泛化误差上可做如下分解，假设我们的预测值为g(x)，真实值为f(x)，则均方误差为</p>
+<script type="math/tex; mode=display">
+E((g(x)−f(x))2)</script><p>这里假设不考虑噪声，g来代表预测值，f代表真实值，g¯=E(g)代表算法的期望预测，则有如下表达：</p>
+<script type="math/tex; mode=display">
+\begin{align}
+E(g-f)^2&=E(g^2-2gf+f^2)
+\\&=E(g^2)-\bar g^2+(\bar g-f)^2
+\\&=E(g^2)-2\bar g^2+\bar g^2+(\bar g-f)^2
+\\&=E(g^2-2g\bar g^2+\bar g^2)+(\bar g-f)^2
+\\&=\underbrace{E(g-\bar g)^2}_{var(x)}+\underbrace{(\bar g-f)^2}_{bias^2(x)}
+\end{align}</script><p>有上述公式可知，方差描述是理论期望和预测值之间的关系，这里的理论期望通常是指所有适用于模型的各种不同分布类型的数据集；偏差描述为真实值和预测值之间的关系，这里的真实值通常指某一个特定分布的数据集合。</p>
 <p>所以综上方差表现为模型在各类分布数据的适应能力，方差越大，说明数据分布越分散，而偏差则表现为在特定分布上的适应能力，偏差越大越偏离真实值。</p>
 <h2 id="如何提升模型的稳定性？"><a href="#如何提升模型的稳定性？" class="headerlink" title="如何提升模型的稳定性？"></a>如何提升模型的稳定性？</h2><p>评价模型不仅要从模型的主要指标上的性能，也要注重模型的稳定性。模型的稳定性体现在对不同样本之间的体现的差异。如模型的方差很大，那可以从如下几个方面进行考虑：</p>
 <p>（1）正则化（L2, L1, dropout）：模型方差大，很可能来自于过拟合。正则化能有效的降低模型的复杂度，增加对更多分布的适应性。</p>
@@ -168,6 +205,26 @@
                 }
                 $('.justified-gallery').justifiedGallery();
             }
-        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><div class="searchbox-pinyin"><label class="checkbox"><input id="search-by-pinyin" type="checkbox" checked="checked"><span> 拼音检索</span></label></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/imaegoo/pinyin.js" defer></script><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><div class="searchbox-pinyin"><label class="checkbox"><input id="search-by-pinyin" type="checkbox" checked="checked"><span> 拼音检索</span></label></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/imaegoo/pinyin.js" defer></script><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
             loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
         });</script><script type="text/javascript" src="/js/imaegoo/imaegoo.js"></script><script type="text/javascript" src="/js/imaegoo/universe.js"></script><script type="text/javascript" src="/js/live2d/autoload.js"></script></body></html>

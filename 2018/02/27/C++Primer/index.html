@@ -1,7 +1,6 @@
 <!doctype html>
-<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>C++Primer - MCFON</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="MCFON"><meta name="msapplication-TileImage" content="/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MCFON"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="变量类型 算术类型  整形 包括char和bool在内   浮点型 单精度 双精度 扩展精度     空类型（void）"><meta property="og:type" content="blog"><meta property="og:title" content="C++Primer"><meta property="og:url" content="https://huzhiliang.com/2018/02/27/C++Primer/"><meta property="og:site_name" content="MCFON"><meta property="og:description" content="变量类型 算术类型  整形 包括char和bool在内   浮点型 单精度 双精度 扩展精度     空类型（void）"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://huzhiliang.com/img/og_image.png"><meta property="article:published_time" content="2018-02-27T02:00:26.000Z"><meta property="article:modified_time" content="2019-12-25T21:05:31.589Z"><meta property="article:author" content="ฅ´ω`ฅ"><meta property="article:tag" content="笔记"><meta property="article:tag" content="C++"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://huzhiliang.com/2018/02/27/C++Primer/"},"headline":"MCFON","image":["https://huzhiliang.com/img/og_image.png"],"datePublished":"2018-02-27T02:00:26.000Z","dateModified":"2019-12-25T21:05:31.589Z","author":{"@type":"Person","name":"ฅ´ω`ฅ"},"description":"变量类型 算术类型  整形 包括char和bool在内   浮点型 单精度 双精度 扩展精度     空类型（void）"}</script><link rel="canonical" href="https://huzhiliang.com/2018/02/27/C++Primer/"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><script type="text/javascript" src="/js/imaegoo/night.js"></script><canvas id="universe"></canvas><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img class="logo-img" src="/" alt="MCFON" height="28"><img class="logo-img-dark" src="/" alt="MCFON" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives/">时间轴</a><a class="navbar-item" href="/categories/">分类</a><a class="navbar-item" href="/tags/">标签</a><a class="navbar-item" target="_blank" rel="noopener" href="https://imaegoo.azurewebsites.net">网盘</a><a class="navbar-item" href="/messages/">留言板</a><a class="navbar-item" href="/friends/">友情链接</a><a class="navbar-item" href="/about/">关于</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2018-02-27T02:00:26.000Z" title="2018-02-27T02:00:26.000Z">2018-02-27</time>发表</span><span class="level-item"><time dateTime="2019-12-25T21:05:31.589Z" title="2019-12-25T21:05:31.589Z">2019-12-26</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/C/">C++</a></span><span class="level-item">1 小时读完 (大约12601个字)</span><span class="level-item leancloud_visitors" id="/2018/02/27/C++Primer/" data-flag-title="C++Primer"><i class="far fa-eye"></i>&nbsp;&nbsp;<span id="twikoo_visitors"><i class="fa fa-spinner fa-spin"></i></span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">C++Primer</h1><div class="content"><h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><ul>
-<li><p>算术类型</p>
-<ul>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>C++Primer - MCFON</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="MCFON"><meta name="msapplication-TileImage" content="/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="MCFON"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="变量类型 算术类型 整形 包括char和bool在内   浮点型 单精度 双精度 扩展精度     空类型（void）"><meta property="og:type" content="blog"><meta property="og:title" content="C++Primer"><meta property="og:url" content="https://huzhiliang.com/2018/02/27/C++Primer/"><meta property="og:site_name" content="MCFON"><meta property="og:description" content="变量类型 算术类型 整形 包括char和bool在内   浮点型 单精度 双精度 扩展精度     空类型（void）"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://huzhiliang.com/img/og_image.png"><meta property="article:published_time" content="2018-02-27T02:00:26.000Z"><meta property="article:modified_time" content="2019-12-25T21:05:31.589Z"><meta property="article:author" content="ฅ´ω`ฅ"><meta property="article:tag" content="笔记"><meta property="article:tag" content="C++"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="/img/og_image.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://huzhiliang.com/2018/02/27/C++Primer/"},"headline":"MCFON","image":["https://huzhiliang.com/img/og_image.png"],"datePublished":"2018-02-27T02:00:26.000Z","dateModified":"2019-12-25T21:05:31.589Z","author":{"@type":"Person","name":"ฅ´ω`ฅ"},"description":"变量类型 算术类型 整形 包括char和bool在内   浮点型 单精度 双精度 扩展精度     空类型（void）"}</script><link rel="canonical" href="https://huzhiliang.com/2018/02/27/C++Primer/"><link rel="icon" href="/img/favicon.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><!--!--><!--!--><meta name="generator" content="Hexo 5.3.0"></head><body class="is-2-column"><script type="text/javascript" src="/js/imaegoo/night.js"></script><canvas id="universe"></canvas><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img class="logo-img" src="/" alt="MCFON" height="28"><img class="logo-img-dark" src="/" alt="MCFON" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives/">时间轴</a><a class="navbar-item" href="/categories/">分类</a><a class="navbar-item" href="/tags/">标签</a><a class="navbar-item" target="_blank" rel="noopener" href="https://imaegoo.azurewebsites.net">网盘</a><a class="navbar-item" href="/messages/">留言板</a><a class="navbar-item" href="/friends/">友情链接</a><a class="navbar-item" href="/about/">关于</a></div><div class="navbar-end"><a class="navbar-item night" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2018-02-27T02:00:26.000Z" title="2018-02-27T02:00:26.000Z">2018-02-27</time>发表</span><span class="level-item"><time dateTime="2019-12-25T21:05:31.589Z" title="2019-12-25T21:05:31.589Z">2019-12-26</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/C/">C++</a></span><span class="level-item">1 小时读完 (大约12601个字)</span><span class="level-item leancloud_visitors" id="/2018/02/27/C++Primer/" data-flag-title="C++Primer"><i class="far fa-eye"></i>&nbsp;&nbsp;<span id="twikoo_visitors"><i class="fa fa-spinner fa-spin"></i></span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">C++Primer</h1><div class="content"><h1 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h1><h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><ul>
+<li>算术类型<ul>
 <li>整形<ul>
 <li>包括char和bool在内</li>
 </ul>
@@ -15,16 +14,14 @@
 </ul>
 </li>
 <li><p>空类型（void）</p>
-<a id="more"></a></li>
-<li><p>*使用建议**：</p>
+<a id="more"></a>
+<p><strong>使用建议</strong>：</p>
 </li>
 <li><p>使用int执行整数运算，超过范围用long long，因为long一般和int大小一样</p>
 </li>
-<li><p>浮点运算用double，float通常精度不够而且双精度和单精度的计算代价相差无几。long double提供的精度通常没必要，而且运算时的消耗也不容忽视</p>
-</li>
+<li>浮点运算用double，float通常精度不够而且双精度和单精度的计算代价相差无几。long double提供的精度通常没必要，而且运算时的消耗也不容忽视</li>
 </ul>
-<br>
-
+<p><br></p>
 <h2 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h2><ul>
 <li><strong>字节</strong>：内存可寻址的最小块，大多数计算机将内存中的每个字节与一个数字(地址)关联起来。C++中，一个字节要至少能容纳机器基本字符集中的字符；</li>
 <li><strong>字</strong>：一般是32比特(4字节)或64比特(8字节)</li>
@@ -37,8 +34,7 @@
 <li>long至少和int一样大；</li>
 <li>long long(C++11)至少和long一样大</li>
 </ul>
-<br>
-
+<p><br></p>
 <h2 id="signed与unsigned"><a href="#signed与unsigned" class="headerlink" title="signed与unsigned"></a>signed与unsigned</h2><blockquote>
 <p>除了bool和扩展字符型外，都可以分为signed和unsigned；​char可以表现为signed char和unsigned char，具体由编译器决定；</p>
 </blockquote>
@@ -51,8 +47,7 @@
 </ul>
 </li>
 </ul>
-<br>
-
+<p><br></p>
 <h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><h3 id="隐式转换与显式转换"><a href="#隐式转换与显式转换" class="headerlink" title="隐式转换与显式转换"></a>隐式转换与显式转换</h3><ul>
 <li><strong>隐式转换</strong><ul>
 <li><strong>整形的隐式转换</strong>：多数表达式中，比int小的整形首先提升为较大整形</li>
@@ -92,8 +87,7 @@
 </ul>
 </li>
 </ul>
-<br>
-
+<p><br></p>
 <h2 id="初始化与赋值"><a href="#初始化与赋值" class="headerlink" title="初始化与赋值"></a>初始化与赋值</h2><blockquote>
 <p>很多语言中二者的区别几乎可以忽略，即使在C++中有时这种区别也无关紧要，所以特别容易把二者混为一谈</p>
 </blockquote>
@@ -122,19 +116,16 @@
 </ul>
 </li>
 </ul>
-<br>
-
+<p><br></p>
 <h2 id="声明与定义"><a href="#声明与定义" class="headerlink" title="声明与定义"></a>声明与定义</h2><ul>
 <li>声明：<code>extern 类型 变量名字;</code></li>
 <li>声明 + 定义：<code>类型 变量名字;</code></li>
 </ul>
 <p><code>extern 类型 变量名字 = 值;</code>（如果在函数内则会报错）</p>
 <p>声明不会分配存储空间，定义会分配存储空间</p>
-<br>
-
+<p><br></p>
 <h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>访问被同名局部变量覆盖的全局变量：<code>::变量名</code>（不管有多少层覆盖，都是访问全局）</p>
-<br>
-
+<p><br></p>
 <h2 id="复合类型"><a href="#复合类型" class="headerlink" title="复合类型"></a>复合类型</h2><h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><ul>
 <li><strong>本质</strong>：引用并非对象，它只是为对象起了另一个名字</li>
 <li><strong>形式</strong>：<code>int &amp;a = b;</code></li>
@@ -171,9 +162,7 @@
 <li>数组与指针的复杂申明  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (*Parray)[<span class="number">10</span>] = &amp;arr; <span class="comment">//Parry是一个指针，指向一个含有10个int的数组​</span></span><br></pre></td></tr></table></figure></li>
 <li>数组与引用的复杂申明  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (&amp;arrRef)[<span class="number">10</span>] = arr; <span class="comment">//arrRef是一个引用，引用一个含有10个int的数组</span></span><br></pre></td></tr></table></figure></li>
 <li>数组与指针及引用的混合复杂申明  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">​<span class="keyword">int</span> *(&amp;arry)[<span class="number">10</span>] = ptrs; <span class="comment">//arry是一个引用，引用一个包含10个int指针的数组</span></span><br></pre></td></tr></table></figure>
-<br>
-
-</li>
+<br></li>
 </ul>
 <h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><h3 id="const对象"><a href="#const对象" class="headerlink" title="const对象"></a>const对象</h3><ul>
 <li>const对象必须初始化，因为创建后const对象的值就不能再改变，初始值可以是任意复杂的表达式  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> i = get_size(); <span class="comment">//运行时初始化</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> j = <span class="number">42</span>;         <span class="comment">//编译时初始化</span></span><br></pre></td></tr></table></figure></li>
@@ -187,21 +176,18 @@
 <li>和非常量引用不同，常量引用可以使用字面值或任意表达式作为初始值（原因:绑定了一个临时量常量）</li>
 </ul>
 <h3 id="指针与const"><a href="#指针与const" class="headerlink" title="指针与const"></a>指针与const</h3><ul>
-<li><p><strong>指向常量的指针</strong>(并不一定要指向常量，只是为了说明无法修改所指的对象)</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *a = &amp;b;</span><br></pre></td></tr></table></figure></li>
+<li><strong>指向常量的指针</strong>(并不一定要指向常量，只是为了说明无法修改所指的对象)  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *a = &amp;b;</span><br></pre></td></tr></table></figure></li>
 <li><p><strong>const指针</strong>(<strong>常量指针</strong>)：不能修改指针，将一直指向一个地址，因此必须初始化。但是指向的对象不是常量的话，可以修改指向的对象</p>
   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> a = &amp;b;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> *<span class="keyword">const</span> pip = &amp;pi; <span class="comment">//pip是一个常量指针，指向的对象是一个双精度浮点型常量</span></span><br></pre></td></tr></table></figure>
 <h3 id="顶层const与底层const"><a href="#顶层const与底层const" class="headerlink" title="顶层const与底层const"></a>顶层const与底层const</h3></li>
 <li><p><strong>顶层const</strong>：无法修改指针本身（顶层是一种直接的关系）</p>
   <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ci = <span class="number">123</span>; </span><br><span class="line"><span class="keyword">int</span> *<span class="keyword">const</span> a = &amp;b;</span><br></pre></td></tr></table></figure></li>
-<li><p><strong>底层const</strong>：无法修改所指的对象（底层是一种间接的关系）</p>
-<ul>
+<li><strong>底层const</strong>：无法修改所指的对象（底层是一种间接的关系）<ul>
 <li>用于声明引用的const都是底层const</li>
 </ul>
 </li>
 </ul>
-<br>
-
+<p><br></p>
 <h2 id="constexpr与常量表达式"><a href="#constexpr与常量表达式" class="headerlink" title="constexpr与常量表达式"></a>constexpr与常量表达式</h2><ul>
 <li><strong>常量表达式</strong>：在“编译过程”就能确定结果的表达式。<ul>
 <li>包括：<ul>
@@ -212,7 +198,7 @@
 <li>以下不是常量表达式<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> s = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> sz = get_size();</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-<li>**constexpr变量(C++11)**：变量声明为contexpr类型，编译器会检查变量的值是否是个常量表达式  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> mf = <span class="number">20</span>          <span class="comment">//20是常量表达式</span></span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> limit = mf + <span class="number">1</span>;  <span class="comment">//mf + 1是常量表达式</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> sz = size();         <span class="comment">//只有当size是一个constexpr函数时，声明才正确</span></span><br></pre></td></tr></table></figure></li>
+<li><strong>constexpr变量(C++11)</strong>：变量声明为contexpr类型，编译器会检查变量的值是否是个常量表达式  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> mf = <span class="number">20</span>          <span class="comment">//20是常量表达式</span></span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">int</span> limit = mf + <span class="number">1</span>;  <span class="comment">//mf + 1是常量表达式</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> sz = size();         <span class="comment">//只有当size是一个constexpr函数时，声明才正确</span></span><br></pre></td></tr></table></figure></li>
 <li><strong>constexpr函数</strong>：这种函数足够简单以使编译时就可以计算其结果</li>
 <li><strong>字面值类型</strong>：能使用constexpr声明的类型应该足够简单，称为字面值类型<ul>
 <li>包括<ul>
@@ -235,15 +221,13 @@
 </ul>
 </li>
 </ul>
-<br>
-
+<p><br></p>
 <h2 id="类型别名"><a href="#类型别名" class="headerlink" title="类型别名"></a>类型别名</h2><ol>
 <li>typedef：<code>typedef double wages;</code></li>
 <li>using（C++11)：<code>using SI = Sales_item;</code></li>
 </ol>
 <p>const与指针的类型别名使用时，还原别名来理解const的限定是错误的</p>
-<br>
-
+<p><br></p>
 <h2 id="auto"><a href="#auto" class="headerlink" title="auto"></a>auto</h2><ul>
 <li>编译器根据初始值判断变量类型</li>
 <li>必须初始化</li>
@@ -253,18 +237,14 @@
 <li>如果希望判断出的auto是一个顶层const，在auto前加const</li>
 <li>还可以将引用的类型设为auto，此时原来的初始化规则仍然适用</li>
 </ul>
-<br>
-
+<p><br></p>
 <h2 id="decltype"><a href="#decltype" class="headerlink" title="decltype"></a>decltype</h2><ul>
 <li>希望根据表达式判定变量类型，但不用表达式的值初始化变量</li>
 <li><code>decltype(f()) sum = x;</code> <code>f()</code>并不会被调用，<code>sum</code>为<code>f()</code>的返回类型</li>
 <li>引用从来都作为其所指对象的同义词出现，只有在decltype处是一个例外</li>
 <li>如果表达式的结果对象能作为一条赋值语句的左值，则表达式将向decltype返回一个引用类型  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">decltype</span>(*p) c; <span class="comment">//错误，c是int &amp;，必须初始化</span></span><br></pre></td></tr></table></figure></li>
 <li>变量加上括号后会被编译器视为一个表达式  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">decltype</span>((i)) d; <span class="comment">//错误，d是int &amp;，必须初始化</span></span><br></pre></td></tr></table></figure>
-<br>
-<br>
-
-</li>
+<br><br><br></li>
 </ul>
 <h1 id="模板与泛型编程"><a href="#模板与泛型编程" class="headerlink" title="模板与泛型编程"></a>模板与泛型编程</h1><h2 id="模板函数"><a href="#模板函数" class="headerlink" title="模板函数"></a>模板函数</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compare</span> <span class="params">(<span class="keyword">const</span> T &amp;v1,<span class="keyword">const</span> T &amp;v2)</span></span></span><br><span class="line">​&#123;</span><br><span class="line">    <span class="keyword">if</span>(v1 &lt; v2) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(v2 &lt; v1) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;​​</span><br><span class="line">​&#125;​​</span><br></pre></td></tr></table></figure>
 <p>当调用一个函数模板时，编译器(通常)用函数实参来为我们推断模板实参。编译器用推断出的模板参数为我们实例化一个特定版本的函数，这些编译器生成的版本通常被称为模板的实例</p>
@@ -305,8 +285,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</span><br><span class="line">Blob&lt;T&gt;::Blob(It b,It e) : data(...) &#123;...&#125;​​​​</span><br></pre></td></tr></table></figure>
 <p>实例化成员模板：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ia[ ] = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">long</span>&gt; vi = &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,...&#125;;</span><br><span class="line"><span class="built_in">list</span>&lt;<span class="keyword">const</span> <span class="keyword">char</span>*&gt; w = &#123;<span class="string">&quot;now&quot;</span>,<span class="string">&quot;is&quot;</span>,<span class="string">&quot;the&quot;</span>&#125;;​​​</span><br><span class="line"><span class="function">Blob&lt;<span class="keyword">int</span>&gt; <span class="title">a1</span><span class="params">(begin(ia),end(ia))</span></span>;​​</span><br><span class="line"><span class="function">Blob&lt;<span class="keyword">int</span>&gt; <span class="title">a2</span><span class="params">(vi.begin( ),vi.end( ))</span></span>;</span><br><span class="line"><span class="function">Blob&lt;<span class="built_in">string</span>&gt; <span class="title">a3</span><span class="params">(w.begin( ),w.end( ))</span></span>;​​</span><br></pre></td></tr></table></figure>
-<br>
-
+<p><br></p>
 <h2 id="类模板"><a href="#类模板" class="headerlink" title="类模板"></a>类模板</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="class"><span class="keyword">class</span> <span class="title">Blob</span> &#123;</span></span><br><span class="line">    <span class="comment">//typename告诉编译器size_type是一个类型而不是一个对象​</span></span><br><span class="line">    <span class="keyword">typedef</span> <span class="keyword">typename</span> <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;T&gt;::size_type size_type</span><br><span class="line">    ​<span class="comment">//...</span></span><br><span class="line">​&#125;;​​​</span><br></pre></td></tr></table></figure>
 <p>一个类模板的每个实例都形成一个独立的类：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Blob&lt;<span class="built_in">string</span>&gt; names;</span><br><span class="line">Blob&lt;<span class="keyword">double</span>&gt; prices;</span><br></pre></td></tr></table></figure>
@@ -347,8 +326,7 @@
 <p>可通过类类型对象或作用域运算符访问：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Foo&lt;<span class="keyword">int</span>&gt; f1;</span><br><span class="line"><span class="keyword">auto</span> ct = Foo&lt;<span class="keyword">int</span>&gt;::count( );</span><br><span class="line">ct = f1.count( );​​</span><br></pre></td></tr></table></figure>
 <p>只有使用时才会实例化</p>
-<br>
-
+<p><br></p>
 <h2 id="模板编译"><a href="#模板编译" class="headerlink" title="模板编译"></a>模板编译</h2><ul>
 <li>遇到模板时不生成代码，实例化时生成代码</li>
 <li>函数模板和类模板成员函数的定义通常放在头文件中</li>
@@ -366,8 +344,7 @@
 <li><strong>类模板的实例化定义会实例化该模板的所有成员</strong></li>
 <li><strong>所用类型必须能用于模板的所有成员</strong>：与处理类模板的普通实例化不同，编译器会实例化该类的所有成员。即使我们不使用某个成员，它也会被实例化。因此，我们用来显式实例化一个类模板的类型，必须能用于模板的所有成员</li>
 </ul>
-<br>
-
+<p><br></p>
 <h2 id="模板参数-1"><a href="#模板参数-1" class="headerlink" title="模板参数"></a>模板参数</h2><h3 id="默认模板实参"><a href="#默认模板实参" class="headerlink" title="默认模板实参"></a>默认模板实参</h3><p>为模板提供默认类型</p>
 <h4 id="模板函数-1"><a href="#模板函数-1" class="headerlink" title="模板函数"></a>模板函数</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T,<span class="keyword">typename</span> F = less&lt;T&gt;&gt;</span><br><span class="line"><span class="keyword">int</span> compare(<span class="keyword">const</span> T &amp;v1,<span class="keyword">const</span> T &amp;v2,F f = F( ))</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(f(v1,v2)) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">if</span>(f(v2,v1)) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;​​​</span><br><span class="line">&#125;​​​</span><br></pre></td></tr></table></figure>
 <p>和函数默认实参一样，所有提供了默认实参的形参右边的形参都需要提供默认实参​</p>
@@ -407,8 +384,8 @@ auto fcn(It beg,It end) -&gt; decltype(*beg)
 &#123;
     //处理序列
     return *beg;//返回序列中一个元素的引用
-&#125;​​​​​​</code></pre>
-<p>也可以使用标准库的类型转换模板。​可以使用<code>remove_reference</code>来获得元素类型。这个模板有一个模板类型参数和一个名为type的成员。如果用一个引用类型实例化这个模板，则type将表示被引用的类型。如果实例化<code>remove_reference&lt;int&amp;&gt;</code>，则type成员将是int。因此，可以通过下列模板满足需求：</p>
+&#125;​​​​​​
+</code></pre><p>也可以使用标准库的类型转换模板。​可以使用<code>remove_reference</code>来获得元素类型。这个模板有一个模板类型参数和一个名为type的成员。如果用一个引用类型实例化这个模板，则type将表示被引用的类型。如果实例化<code>remove_reference&lt;int&amp;&gt;</code>，则type成员将是int。因此，可以通过下列模板满足需求：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</span><br><span class="line">auto fcn2(It beg,It end) -&gt;</span><br><span class="line"><span class="keyword">typename</span> remove_reference&lt;<span class="keyword">decltype</span>(*beg)&gt;::type</span><br><span class="line">&#123;</span><br><span class="line">    ​ <span class="comment">//处理序列</span></span><br><span class="line">    <span class="keyword">return</span> *beg;</span><br><span class="line">&#125;​​​​​​</span><br></pre></td></tr></table></figure>
 <h4 id="函数指针和实参推断"><a href="#函数指针和实参推断" class="headerlink" title="函数指针和实参推断"></a>函数指针和实参推断</h4><p>用一个函数模板初始化一个函数指针或为一个函数指针赋值时，编译器使用指针的类型来推断模板实参</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">const</span> T&amp;,<span class="keyword">const</span> T&amp;)</span></span>;</span><br><span class="line"><span class="keyword">int</span> (*pf1)(<span class="keyword">const</span> <span class="keyword">int</span>&amp;,<span class="keyword">const</span> <span class="keyword">int</span>&amp;) = compare;</span><br></pre></td></tr></table></figure>
@@ -428,7 +405,14 @@ auto fcn(It beg,It end) -&gt; decltype(*beg)
 <p>当参数是一个右值引用时，正常绑定规则告诉我们可以传递给它一个右值：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="keyword">void</span> <span class="title">f3</span><span class="params">(T&amp;&amp;)</span></span>;</span><br><span class="line">f3(<span class="number">42</span>); <span class="comment">//实参是int型的右值，T推断为int；​​</span></span><br></pre></td></tr></table></figure>
 <p>引用折叠：</p>
-<p>​1. 如果将一个左值传递给函数的右值引用参数，且此右值引用指向模板类型参数(如:T&amp;&amp;)时，编译器推断模板的类型参数为左值引用类型<br>2. 如果因为1.间接的创建了一个引用的引用，则引用形参了“折叠”、则：<br>    * 右值引用的右值引用会被折叠成右值引用<br>    * 其它情况下都折叠成左值引用</p>
+<p>​1. 如果将一个左值传递给函数的右值引用参数，且此右值引用指向模板类型参数(如:T&amp;&amp;)时，编译器推断模板的类型参数为左值引用类型</p>
+<ol>
+<li>如果因为1.间接的创建了一个引用的引用，则引用形参了“折叠”、则：<ul>
+<li>右值引用的右值引用会被折叠成右值引用</li>
+<li>其它情况下都折叠成左值引用</li>
+</ul>
+</li>
+</ol>
 <p>因此，对于前面的f3：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f3(i)​; <span class="comment">//i是左值，T推断为int&amp;，T&amp;&amp;被折叠成int &amp;；</span></span><br><span class="line">f3(ci); <span class="comment">//​​​​​ci是左值，T是const int&amp;；</span></span><br></pre></td></tr></table></figure>
 <p>​​因此，如果模板参数类型为右值引用，可以传递给它任意类型的实参</p>
@@ -438,8 +422,7 @@ auto fcn(It beg,It end) -&gt; decltype(*beg)
 <li><strong>模板转发其实参</strong>：当使用右值引用作为模板参数时，如果T被推断成普通类型(即非引用)，可以通过std::forward<T>保持其右值属性，会返回一个T&amp;&amp;。如果被推断成一个(左值)引用，通过引用折叠，最终也还是会返回T&amp;；因此，当用于一个指向模板参数类型的右值引用函数参数(T&amp;&amp;)时，forward会保持实参类型的所有细节</li>
 <li><strong>模板被重载</strong></li>
 </ol>
-<br>
-
+<p><br></p>
 <h2 id="重载与模板"><a href="#重载与模板" class="headerlink" title="重载与模板"></a>重载与模板</h2><p>包含模板的函数匹配规则：</p>
 <ol>
 <li><strong>候选函数包括所有模板实参推断成功的函数模板实例</strong> <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="built_in">string</span> <span class="title">debug_rep</span><span class="params">(<span class="keyword">const</span> T &amp;t)</span> </span>&#123;...&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="function"><span class="built_in">string</span> <span class="title">debug_rep</span><span class="params">(T *p)</span> </span>&#123;...&#125;</span><br><span class="line">​​<span class="function"><span class="built_in">string</span> <span class="title">s</span><span class="params">(<span class="string">&quot;hi&quot;</span>)</span></span>;</span><br><span class="line"><span class="comment">//第二个模板实参推断失败，所以调用第一个模板；</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; debug_rep(s) &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure></li>
@@ -451,8 +434,7 @@ auto fcn(It beg,It end) -&gt; decltype(*beg)
 </ul>
 </li>
 </ol>
-<br>
-
+<p><br></p>
 <h2 id="可变参数模板"><a href="#可变参数模板" class="headerlink" title="可变参数模板"></a>可变参数模板</h2><p><strong>参数包</strong>：</p>
 <ul>
 <li><strong>模板参数包</strong>：<br>  <code>template&lt;typename T,typename... Args&gt;</code><br>  Args为模板参数包，class…或typename…指出接下来的参数表示零个或多个类型的列表，一个类型名后面跟一个省略号表示零个或多个给定类型的非类型参数的列表；​​</li>
@@ -463,13 +445,12 @@ auto fcn(It beg,It end) -&gt; decltype(*beg)
 <ul>
 <li><code>sizeof...</code> 获取参数包大小。可以使用<code>sizeof...</code>运算符获取包中元素的数目</li>
 <li><strong>扩展包</strong>：扩展一个包就是将包分解为构成的元素，对每个元素应用模式，获得扩展后的列表，通过在模式右边放一个省略号来触发扩展操作：  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T,<span class="keyword">typename</span>... Args&gt;</span><br><span class="line"><span class="function">ostream&amp; <span class="title">print</span><span class="params">(ostream &amp;os,<span class="keyword">const</span> T &amp;t,<span class="keyword">const</span> Args&amp;... rest)</span> <span class="comment">//扩展Args</span></span></span><br><span class="line">​​​​&#123;</span><br><span class="line">    os &lt;&lt; t &lt;&lt; ​<span class="string">&quot;, &quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> print(os,rest...); <span class="comment">//扩展rest</span></span><br><span class="line">&#125;​​</span><br></pre></td></tr></table></figure>
-  扩展中的模式会独立地应用于包中的每个元素：  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">debug_res(rest)... 是对包rest的每一个元素调用debug_res；</span><br><span class="line">debug_res(rest...) 是调用一个参数数目和类型与rest中元素匹配的debug_rest；​​​</span><br></pre></td></tr></table></figure></li>
-<li>*转发包参数**：</li>
+  扩展中的模式会独立地应用于包中的每个元素：  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">debug_res(rest)... 是对包rest的每一个元素调用debug_res；</span><br><span class="line">debug_res(rest...) 是调用一个参数数目和类型与rest中元素匹配的debug_rest；​​​</span><br></pre></td></tr></table></figure>
+<strong>转发包参数</strong>：</li>
 </ul>
 <p>新标准下，可以组合使用可变参数模板与forward机制来编写函数，实现将其参数不变地传递给其他函数：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(Args&amp;&amp;... args)</span> <span class="comment">//将Args扩展为一个右值引用的列表 </span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//work的实参既扩展Args又扩展args</span></span><br><span class="line">    work(<span class="built_in">std</span>::forward&lt;Args&gt;(args)...);​​</span><br><span class="line">&#125;​​​​</span><br></pre></td></tr></table></figure>
-<br>
-
+<p><br></p>
 <h2 id="模板特例化"><a href="#模板特例化" class="headerlink" title="模板特例化"></a>模板特例化</h2><p>编写单一模板，使之对任何可能的模板实参都是最合适的，都能实例化，这并不总是能办到。当我们不能（或不希望）使用模板版本时，可以定义类或函数模板的一个特例化版本</p>
 <p>一个特例化版本本质上是一个实例，而非函数名的一个重载版本。因此，特例化不影响函数匹配；</p>
 <ul>
@@ -477,10 +458,7 @@ auto fcn(It beg,It end) -&gt; decltype(*beg)
   定义了某个模板能处理Sales_data的特例化版本</li>
 <li><strong>类模板（偏特化）部分特例化</strong>：与函数模板不同，类模板的特例化不必为所有模板参数提供实参。可以只提供一部分而非所有模板参数，或是参数的一部分而非全部特性。部分特例化本身是一个模板，<strong>部分特例化版本的模板参数列表是原始模板的参数列表的一个子集或者是一个特例化版本</strong>  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原始的，最通用的版本</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span> <span class="class"><span class="keyword">struct</span> <span class="title">remove_reference</span></span></span><br><span class="line"><span class="class">​​ &#123;</span> <span class="keyword">typedef</span> T type;​ &#125;;</span><br><span class="line"><span class="comment">//部分特例化版本，将用于左值引用和右值引用</span></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span> <span class="class"><span class="keyword">struct</span> <span class="title">remove_reference</span>&lt;</span>T&amp;&gt;</span><br><span class="line">&#123; <span class="keyword">typedef</span> T type; &#125;;​</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span> <span class="class"><span class="keyword">struct</span> <span class="title">remove_feference</span>&lt;</span>T&amp;&amp;&gt;</span><br><span class="line">&#123; <span class="keyword">typedef</span> T type; &#125;;</span><br><span class="line"><span class="comment">//用例</span></span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line">remove_reference&lt;<span class="keyword">decltype</span>(<span class="number">42</span>)&gt;::type a;           <span class="comment">//decltype(42)为int，使用原始模板​；</span></span><br><span class="line">remove_reference&lt;<span class="keyword">decltype</span>(i)&gt;::type b;            <span class="comment">//decltype(i)为int&amp;，使用第一个部分特例化版本；​</span></span><br><span class="line">​remove_reference&lt;<span class="keyword">decltype</span>(<span class="built_in">std</span>::move(i))&gt;::type c;​​​​​​​​​​​​​​​ <span class="comment">//decltype(std::move(i))为int&amp;&amp;，使用第二个部分特例化版本；</span></span><br></pre></td></tr></table></figure></li>
 <li><strong>特例化成员而非类</strong>  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;&gt;</span><br><span class="line"><span class="keyword">void</span> Foo&lt;<span class="keyword">int</span>&gt;::Bar( )</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//进行应用于int的特例化处理；​​​</span></span><br><span class="line">&#125;</span><br><span class="line">Foo&lt;<span class="built_in">string</span>&gt; fs; <span class="comment">//实例化Foo&lt;string&gt;::Foo( );</span></span><br><span class="line">fs.Bar( );      <span class="comment">//实例化Foo&lt;string&gt;::Bar( );</span></span><br><span class="line">Foo&lt;<span class="keyword">int</span>&gt; fi;    <span class="comment">//实例化Foo&lt;int&gt;::Foo( );</span></span><br><span class="line">fi.Bar( );      <span class="comment">//使用特例化版本的Foo&lt;int&gt;::Bar( );</span></span><br></pre></td></tr></table></figure>
-<br>
-<br>
-
-</li>
+<br><br><br></li>
 </ul>
 <h1 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h1><h2 id="new和delete"><a href="#new和delete" class="headerlink" title="new和delete"></a>new和delete</h2><h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><h4 id="动态分配单个对象"><a href="#动态分配单个对象" class="headerlink" title="动态分配单个对象"></a>动态分配单个对象</h4><p>初始化：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *pi1 = <span class="keyword">new</span> <span class="keyword">int</span>;         <span class="comment">//默认初始化</span></span><br><span class="line"><span class="keyword">int</span> *pi2 = <span class="keyword">new</span> <span class="keyword">int</span>();       <span class="comment">//值初始化</span></span><br><span class="line"><span class="keyword">int</span> *pi2 = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">1024</span>);   <span class="comment">//直接初始化</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">string</span> *ps = <span class="keyword">new</span> <span class="built_in">string</span>(<span class="number">10</span>,<span class="string">&#x27;9&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//若obj是一个int，则p1是int*；</span></span><br><span class="line"><span class="comment">//不能用&#123;...&#125;代替(obj)包含多个对象；​</span></span><br><span class="line"><span class="keyword">auto</span> p1 = <span class="keyword">new</span> <span class="keyword">auto</span>(obj);</span><br></pre></td></tr></table></figure>
@@ -538,8 +516,7 @@ auto fcn(It beg,It end) -&gt; decltype(*beg)
 </ul>
 </li>
 </ul>
-<br>
-
+<p><br></p>
 <h2 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a>智能指针</h2><h3 id="通用操作"><a href="#通用操作" class="headerlink" title="通用操作"></a>通用操作</h3><blockquote>
 <p>以下操作支持shared_ptr和unique_ptr</p>
 </blockquote>
@@ -629,6 +606,26 @@ auto fcn(It beg,It end) -&gt; decltype(*beg)
                 }
                 $('.justified-gallery').justifiedGallery();
             }
-        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><div class="searchbox-pinyin"><label class="checkbox"><input id="search-by-pinyin" type="checkbox" checked="checked"><span> 拼音检索</span></label></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/imaegoo/pinyin.js" defer></script><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/mhchem.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><div class="searchbox-pinyin"><label class="checkbox"><input id="search-by-pinyin" type="checkbox" checked="checked"><span> 拼音检索</span></label></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/imaegoo/pinyin.js" defer></script><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
             loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
         });</script><script type="text/javascript" src="/js/imaegoo/imaegoo.js"></script><script type="text/javascript" src="/js/imaegoo/universe.js"></script><script type="text/javascript" src="/js/live2d/autoload.js"></script></body></html>
